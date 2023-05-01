@@ -1,38 +1,25 @@
 .App {
+  position: relative;
   text-align: center;
-  font-family: Arial, sans-serif;
+  font-family: 'Arial Black', Arial, sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  color: white; /* Set the font color to white */
 }
 
-.App-header {
-  background-color: #282c34;
-  padding: 1rem;
-  color: white;
-}
-
-main {
-  padding: 2rem;
-}
-
-section {
-  margin-bottom: 2rem;
-}
-
-h1, h2 {
-  font-weight: bold;
-}
-
-footer {
-  background-color: #282c34;
-  padding: 1rem;
-  color: white;
-}
-
-.App {
+.App::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url('./background.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 100vh;
+  backdrop-filter: blur(5px);
+  z-index: -1;
 }
 
 .password-input {
@@ -40,17 +27,8 @@ footer {
   font-size: 16px;
   border: 2px solid #ccc;
   border-radius: 4px;
-}
-
-
-.blur-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(5px);
+  margin-bottom: 15px;
+  width: 250px;
 }
 
 form {
@@ -59,11 +37,4 @@ form {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  font-family: 'Arial Black', Arial, sans-serif;
 }
-
-input.password-input {
-  margin-bottom: 15px;
-  width: 250px;
-}
-
