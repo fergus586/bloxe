@@ -41,3 +41,29 @@ footer {
   border: 2px solid #ccc;
   border-radius: 4px;
 }
+
+
+.blur-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
+
+input.password-input {
+  margin-bottom: 15px;
+  width: 250px;
+}
+
