@@ -1,0 +1,23 @@
+.home-page {
+  background-color: #efe7e4;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome-logo {
+  width: 200px;
+}
+
+h1 {
+  font-family: 'Arial Black', Arial, sans-serif;
+}

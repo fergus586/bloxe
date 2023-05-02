@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import PasswordPage from './PasswordPage';
+import HomePage from './HomePage';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -12,8 +13,7 @@ const App = () => {
   return (
     <div className="App">
       {isAuthenticated ? (
-        // Your protected content here
-        <div>Your protected content goes here</div>
+        <HomePage isAuthenticated={isAuthenticated} />
       ) : (
         <PasswordPage onPasswordSuccess={handlePasswordSuccess} />
       )}

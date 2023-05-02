@@ -21,15 +21,17 @@ const PasswordPage = ({ onPasswordSuccess }) => {
 
   return (
     <div className="password-page">
-      {Array.from({ length: 4 }, (_, index) => (
-        <img
-          key={index}
-          src={`/image${index + 1}.png`}
-          alt={`Image ${index + 1}`}
-          className="password-image"
-          onClick={() => handleClick(index + 1)}
-        />
-      ))}
+      <div className="images-container">
+        {Array.from({ length: 4 }, (_, index) => (
+          <img
+            key={index}
+            src={`/image${index + 1}.png`}
+            alt={`Image ${index + 1}`}
+            className="password-image"
+            onClick={() => handleClick(index + 1)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
