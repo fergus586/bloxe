@@ -1,9 +1,9 @@
 import React from 'react';
 import './Navbar.css';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-const Navbar = ({ isAuthenticated }) => {
-  const history = useHistory();
+const Navbar = () => {
+  const navigate = useNavigate();
   const artists = [
     { name: 'Artist 1', image: '/image1.png' },
     { name: 'Artist 2', image: '/image2.png' },
@@ -11,24 +11,18 @@ const Navbar = ({ isAuthenticated }) => {
     { name: 'Artist 4', image: '/image4.png' },
   ];
 
-  const handleArtistClick = (artistName) => {
-    history.push(`/artist/${artistName}`);
+  const handleClick = (artist) => {
+    navigate('/artist/' + artist.name);
   };
 
   return (
     <nav className="navbar">
-      <img
-        src="/logo.png"
-        alt="Logo"
-        className="navbar-logo"
-        style={isAuthenticated ? { animation: 'fadeIn 2s' } : {}}
-      />
       <div className="artist-links">
         {artists.map((artist, index) => (
           <div
             key={index}
             className="artist-item"
-            onClick={() => handleArtistClick(artist.name)}
+            onClick={() => handleClick(artist)}
           >
             <img src={artist.image} alt={artist.name} className="artist-image" />
             <span className="artist-name">{artist.name}</span>
