@@ -32,7 +32,7 @@ const PasswordPage = ({ onPasswordSuccess }) => {
           <img
             key={index}
             src={img}
-            alt={`Image ${index + 1}`}
+            alt={`${index + 1}`}
             className="password-image"
             onClick={() => handleClick(index + 1)}
           />
