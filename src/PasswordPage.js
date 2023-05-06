@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import './PasswordPage.css';
+import image1 from './images/image1.png';
+import image2 from './images/image2.png';
+import image3 from './images/image3.png';
+import image4 from './images/image4.png';
 
 const PasswordPage = ({ onPasswordSuccess }) => {
   const [clickSequence, setClickSequence] = useState([]);
-  const correctSequence = [1, 2, 3, 4]; // Define the correct sequence of image clicks
+  const correctSequence = [1, 2, 3, 4];
 
   const handleClick = (imageNumber) => {
     setClickSequence((prevSequence) => [...prevSequence, imageNumber]);
@@ -19,13 +23,15 @@ const PasswordPage = ({ onPasswordSuccess }) => {
     }
   };
 
+  const images = [image1, image2, image3, image4];
+
   return (
     <div className="password-page">
       <div className="images-container">
-        {Array.from({ length: 4 }, (_, index) => (
+        {images.map((img, index) => (
           <img
             key={index}
-            src={`/image${index + 1}.png`}
+            src={img}
             alt={`Image ${index + 1}`}
             className="password-image"
             onClick={() => handleClick(index + 1)}
