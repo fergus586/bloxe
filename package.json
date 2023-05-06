@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build -r https://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@github.com/fergus586/bloxe.git"
   },
   "eslintConfig": {
     "extends": [
