@@ -3,9 +3,6 @@ import './App.css';
 import PasswordPage from './PasswordPage';
 import HomePage from './HomePage';
 import { BrowserRouter } from 'react-router-dom';
-import Navbar from './Navbar';
-
-
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
