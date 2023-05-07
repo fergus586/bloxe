@@ -5,36 +5,32 @@ import Navbar from './Navbar';
 const HomePage = ({ isAuthenticated }) => {
   return (
     <div className="home-page">
-      <Navbar isAuthenticated={isAuthenticated} />
-      <div className="about-section">
-        <h2 className="about-title">About Bloxe Record Label</h2>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus
-          lacinia odio vitae vestibulum. Aliquam pellentesque odio eget
-          ullamcorper. Quisque at tortor vitae quam scelerisque dignissim.
-          Etiam condimentum, velit a luctus venenatis, libero libero gravida
-          tellus, eget tincidunt dolor mi id orci.
-        </p>
-        <p>
-          Mauris volutpat vehicula metus, nec tempus nisl eleifend eget. Morbi
-          feugiat neque vel nibh tempus, at vulputate mauris consectetur.
-          Suspendisse fringilla, purus eget condimentum rutrum, massa mauris
-          eleifend sapien, non porttitor nunc ligula nec risus.
-        </p>
-        <div className="social-links">
+         <Navbar />
+      <div className="content-section">
+        <div className="soundcloud-embed">
+          <iframe
+            width="100%"
+            height="300"
+            scrolling="no"
+            frameborder="no"
+            allow="autoplay"
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1507046836&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"
+          ></iframe>
+        </div>
+        <div className="links-container">
           <a
-            href="https://soundcloud.com" // Replace with your SoundCloud link
+            href="https://gate.sc/?url=https%3A%2F%2Fdocs.google.com%2Fforms%2Fd%2Fe%2F1FAIpQLSeIsBvKTDUC17v-jzpRzg0vbFzq8Mf-KVrsN6KdydDhrsX9fw%2Fviewform%3Fusp%3Dsf_link&token=e8ab9d-1-1683482139113"
             target="_blank"
             rel="noopener noreferrer"
-            className="social-link"
+            className="link"
           >
-            SoundCloud
+            Submissions Form
           </a>
           <a
-            href="https://instagram.com" // Replace with your Instagram link
+            href="https://gate.sc/?url=https%3A%2F%2Fwww.instagram.com%2Fbloxe.bristol%2F&token=d29253-1-1683482139113"
             target="_blank"
             rel="noopener noreferrer"
-            className="social-link"
+            className="link"
           >
             Instagram
           </a>

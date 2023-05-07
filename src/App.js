@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import PasswordPage from './PasswordPage';
 import HomePage from './HomePage';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Navigate, Routes } from 'react-router-dom';
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -15,10 +15,12 @@ const App = () => {
     <div className="App">
       <BrowserRouter>
         {isAuthenticated ? (
-          <HomePage isAuthenticated={isAuthenticated} />
-        ) : (
-          <PasswordPage onPasswordSuccess={handlePasswordSuccess} />
-        )}
+          <Navigate to="/home" />
+        ) : null}
+        <Routes>
+          <Route path="/" element={<PasswordPage onPasswordSuccess={handlePasswordSuccess} />} />
+          <Route path="/home" element={<HomePage />} />
+        </Routes>
       </BrowserRouter>
     </div>
   );

@@ -1,23 +1,31 @@
 .home-page {
-  background-color: #efe7e4;
-  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  padding: 2rem;
 }
 
-.welcome-message {
+.links-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
 }
 
-.welcome-logo {
-  width: 200px;
+.link {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  border: 2px solid #333;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s, color 0.3s;
 }
 
-h1 {
-  font-family: 'Arial Black', Arial, sans-serif;
+.link:hover {
+  background-color: #333;
+  color: #fff;
 }
