@@ -19,7 +19,6 @@
   display: inline-block;
   padding: 20px 40px;
   border-radius: 40px;
-  transition: all 0.3s ease-in-out;
   position: relative;
   z-index: 1;
 }
@@ -28,29 +27,46 @@
   content: '';
   position: absolute;
   top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Update the transform to center the element */
-  width: 0;
-  height: 0;
+  left: 0;
+  transform: translateY(-50%); /* Center vertically */
+  width: 100%;
+  height: 100%;
   background-image: url('./bloxewhite.png');
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  transition: all 0.1s ease-in-out;
+  transition: all 0.3s ease-in-out;
   z-index: -1;
 }
 
 .home-content h1 span:hover {
   color: transparent; /* Make the text disappear */
-  padding: 30px 60px; /* Increase the padding when hovered over */
 }
 
 .home-content h1 span:hover::before {
-  width: 80%;
-  height: 80%;
+  left: 0; /* Move the image to the original position */
   opacity: 1;
-  transition: all 0.1s ease-in-out;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  transition: all 0.3s ease-in-out;
+}
+/*... existing styles ...*/
+
+.home-content h1 span {
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 40px;
+  position: relative;
+  z-index: 1;
+  cursor: pointer; /* Add this to show it's clickable */
+}
+
+/* Add this new class */
+.home-content h1 span.image-active {
+  color: transparent;
+}
+
+.home-content h1 span.image-active::before {
+  left: 0;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
 }
