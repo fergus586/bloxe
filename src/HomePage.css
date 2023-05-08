@@ -1,44 +1,56 @@
-.home-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 20px;
-}
-
-.interactive-image {
-  position: relative;
-  width: 108px;
-  height: 108px;
-  overflow: hidden;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.interactive-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.interactive-image:hover .coming-soon {
-  opacity: 0;
-}
-
-.coming-soon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+.home-content {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9);
-  font-size: 2rem;
+  min-height: calc(100vh - 60px); /* Assuming the Navbar height is 60px */
+}
+
+.home-content h1 {
+  font-size: 6rem;
   font-weight: bold;
   text-transform: uppercase;
-  border: 2px solid rgba(0, 0, 0, 0.3);
-  border-radius: 10px;
+  letter-spacing: 2px;
+  color: #fdfdfd;
+  position: relative;
+  text-align: center;
+}
+
+.home-content h1 span {
+  display: inline-block;
+  padding: 20px 40px;
+  border-radius: 40px;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.home-content h1 span::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Update the transform to center the element */
+  width: 0;
+  height: 0;
+  background-image: url('./bloxewhite.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+  z-index: -1;
+}
+
+.home-content h1 span:hover {
+  color: transparent; /* Make the text disappear */
+  padding: 30px 60px; /* Increase the padding when hovered over */
+}
+
+.home-content h1 span:hover::before {
+  width: 80%;
+  height: 80%;
   opacity: 1;
-  transition: opacity 0.3s;
+  transition: all 0.1s ease-in-out;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
