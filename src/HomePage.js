@@ -19,8 +19,8 @@ const HomePage = () => {
             className={active ? 'image-active' : ''}
           >
             BLOXE
-          </span>{''}
-        NOT BLOKE
+          </span>{' '}
+          NOT BLOKE
         </h1>
       </div>
     </div>
