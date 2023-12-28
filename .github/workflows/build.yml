@@ -4,18 +4,17 @@ on:
   push:
     branches:
       - main
-
-permissions:
-  contents: read
-  id-token: write
+  workflow_dispatch:  # Enable manual triggering
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - name: Checkout code from another repository
+        uses: actions/checkout@v2
+        with:
+          repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
+          ref: main  # Replace with the branch or tag you want to checkout
 
       - name: Install Node.js
         uses: actions/setup-node@v3
