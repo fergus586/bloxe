@@ -12,6 +12,13 @@ jobs:
         with:
           repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
           ref: main  # Replace with the branch or tag you want to checkout
+          ssh-strict: true
+          persist-credentials: true
+          clean: true
+          fetch-depth: 1
+          lfs: false
+          submodules: false
+          set-safe-directory: true
 
       - name: Install Node.js
         uses: actions/setup-node@v3
