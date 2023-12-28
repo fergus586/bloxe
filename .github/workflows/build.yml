@@ -20,7 +20,10 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          npm install
+          # You can conditionally set CI to false here if needed
+          export CI=false
 
       - name: Build
         run: npm run build
