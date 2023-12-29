@@ -48,8 +48,11 @@ jobs:
           git config --global user.email "fergus586@gmail.com"
           git config --global user.name "fergus586"
 
-          # Deploy to GitHub Pages with custom domain
+          # Create a CNAME file with the custom domain
+          echo "bloxe.art" > ./build/CNAME
+
+          # Deploy to GitHub Pages
           echo "Deploying to GitHub Pages with custom domain (bloxe.art)..."
-          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages -d bloxe.art
+          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages --add
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY2 }}
