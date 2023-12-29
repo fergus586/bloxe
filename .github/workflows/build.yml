@@ -52,4 +52,4 @@ jobs:
           echo "Deploying to GitHub Pages..."
           gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
         env:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY2 }}
