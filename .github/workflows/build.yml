@@ -6,6 +6,11 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+      packages: write
+
     steps:
       - name: Checkout code from another repository
         uses: actions/checkout@v2
@@ -29,4 +34,3 @@ jobs:
         run: |
           npm install -g gh-pages
           gh-pages -d ./build -r git@github.com:BloxeArt/bloxe.git -b gh-pages
-
