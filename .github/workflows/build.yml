@@ -12,7 +12,7 @@ jobs:
         with:
           repository: BloxeArt/bloxe
           ref: main
-          ssh-key: ${{ secrets.pages_build }}
+          ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -37,5 +37,6 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v3
         with:
-          token: ${{ secrets.PAGES_DEPLOY_KEY }}  # Use your new Personal Access Token secret
+          token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
+  
