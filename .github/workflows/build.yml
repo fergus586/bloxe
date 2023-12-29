@@ -1,21 +1,18 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch: # Enable manual triggering
-  push:
-    branches:
-      - main # Adjust this to your main branch
-  # Add other events or conditions if needed
+  workflow_dispatch:  # Enable manual triggering
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code from another repository
         uses: actions/checkout@v2
         with:
-          repository: BloxeArt/bloxe
-          ref: main # Specify the branch you want to build
+          repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
+          ref: main  # Replace with the branch or tag you want to checkout
+          ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -28,9 +25,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: ./build
+
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main' # Adjust to match your main branch
-        uses: peaceiris/actions-gh-pages@v3
+        uses: actions/deploy-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./build
