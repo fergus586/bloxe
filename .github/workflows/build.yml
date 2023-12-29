@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:  # Enable manual triggering
+  workflow_dispatch:  
 
 jobs:
   build-deploy:
@@ -10,8 +10,8 @@ jobs:
       - name: Checkout code from another repository
         uses: actions/checkout@v2
         with:
-          repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
-          ref: main  # Replace with the branch or tag you want to checkout
+          repository: BloxeArt/bloxe  
+          ref: main  
           ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
 
       - name: Install Node.js
