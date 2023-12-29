@@ -48,8 +48,8 @@ jobs:
           git config --global user.email "fergus586@gmail.com"
           git config --global user.name "fergus586"
 
-          # Deploy to GitHub Pages
-          echo "Deploying to GitHub Pages..."
-          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
+          # Deploy to GitHub Pages with custom domain
+          echo "Deploying to GitHub Pages with custom domain (bloxe.art)..."
+          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages -d bloxe.art
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY2 }}
