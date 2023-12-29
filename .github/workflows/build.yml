@@ -36,6 +36,8 @@ jobs:
           npm install -g gh-pages
           eval "$(ssh-agent -s)"
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+          git config --global user.email "fergus586@gmail.com"
+          git config --global user.name "fergus586"
           gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
