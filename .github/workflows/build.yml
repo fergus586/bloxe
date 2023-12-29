@@ -8,10 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code from another repository
-        uses: actions/checkout@v2
-        with:
-          repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
-          ref: main  # Replace with the branch or tag you want to checkout
+      uses: actions/checkout@v2
+      with:
+        repository: git@github.com:BloxeArt/bloxe.git
+        ref: main
+        token: ${{ secrets.BLOXEART_DEPLOY_KEY }}
+        ssh-strict: true
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -24,18 +26,9 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Load SSH key
-        run: |
-          echo "$SSH_PRIVATE_KEY" > deploy_key
-          chmod 600 deploy_key
-          eval $(ssh-agent -s)
-          ssh-add deploy_key
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
-
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
-          gh-pages -d ./build -r https://github.com/fergus586/bloxe.git -b main
+          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b main
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
