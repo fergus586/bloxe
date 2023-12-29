@@ -25,14 +25,8 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./build
-
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+        run: |
+          npm install -g gh-pages
+          gh-pages -d ./build -r git@github.com:BloxeArt/bloxe.git -b main
+
