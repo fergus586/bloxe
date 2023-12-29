@@ -1,10 +1,13 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:  # Enable manual triggering
+  workflow_dispatch: # Enable manual triggering
 
 jobs:
   build-deploy:
+    Permissions:
+      pages: write 
+      id-token: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code from another repository
