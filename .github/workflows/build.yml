@@ -12,7 +12,7 @@ jobs:
         with:
           repository: fergus586/bloxe
           ref: main  # Replace with the branch or tag you want to checkout
-          ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}  # Updated to use DEPLOY_SSH_KEY secret
+          ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}  # Use DEPLOY_SSH_KEY secret
 
       - name: Install Node.js
         uses: actions/setup-node@v3
