@@ -31,7 +31,11 @@ jobs:
           name: build-artifacts
           path: ./build
 
-      - name: Deploy to GitHub Pages
+      - name: Load SSH key and deploy to GitHub Pages
         run: |
           npm install -g gh-pages
+          eval "$(ssh-agent -s)"
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
           gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
