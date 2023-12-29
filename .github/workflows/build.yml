@@ -10,9 +10,11 @@ jobs:
       - name: Checkout code from another repository
         uses: actions/checkout@v2
         with:
-          repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
-          ref: main  # Replace with the branch or tag you want to checkout
-
+          repository: git@github.com:BloxeArt/bloxe.git
+          ref: main
+          token: ${{ secrets.BLOXEART_DEPLOY_KEY }}
+          ssh-strict: true
+          
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
