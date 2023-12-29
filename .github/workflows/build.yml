@@ -32,7 +32,6 @@ jobs:
           path: ./build
 
       - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+        run: |
+          npm install -g gh-pages
+          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
