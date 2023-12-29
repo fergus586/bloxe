@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:  
+  workflow_dispatch:
 
 jobs:
   build-deploy:
@@ -10,39 +10,39 @@ jobs:
       - name: Checkout code from another repository
         uses: actions/checkout@v2
         with:
-          repository: BloxeArt/bloxe  
-          ref: main  
+          repository: BloxeArt/bloxe
+          ref: main
           ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
 
-      - name: Install Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
+      - name: Cache Node.js dependencies
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build
         run: npm run build
-
-      - name: Upload Artifacts
-        uses: actions/upload-artifact@v3
-        with:
-          name: build-artifacts
-          path: ./build
 
       - name: Load SSH key and deploy to GitHub Pages
         run: |
           npm install -g gh-pages
 
-          # Enable verbose mode for ssh-add
-          echo "Adding SSH key to the agent with verbose output..."
+          # Start the SSH agent
           eval "$(ssh-agent -s)"
-          ssh-add -v <(echo "$SSH_PRIVATE_KEY" | tr -d '\r')
 
-          # Display the loaded keys
-          echo "List of loaded keys:"
-          ssh-add -L
+          # Add the SSH private key to the agent
+          ssh-add - <<< "$SSH_PRIVATE_KEY"
 
           # Configure Git user
           git config --global user.email "fergus586@gmail.com"
@@ -52,7 +52,6 @@ jobs:
           echo "bloxe.art" > ./build/CNAME
 
           # Deploy to GitHub Pages
-          echo "Deploying to GitHub Pages with custom domain (bloxe.art)..."
           gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages --add
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY2 }}
