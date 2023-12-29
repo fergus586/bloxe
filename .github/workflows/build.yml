@@ -1,10 +1,11 @@
 name: Deploy to GitHub Pages
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Enable manual triggering
   push:
     branches:
-      - main
+      - main # Adjust this to your main branch
+  # Add other events or conditions if needed
 
 jobs:
   build-deploy:
@@ -12,26 +13,27 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
-          with:
-            repository: BloxeArt/bloxe
-            ref: main
+        with:
+          repository: BloxeArt/bloxe
+          ref: main # Specify the branch you want to build
 
-      - name: Setup Node.js
+      - name: Install Node.js
         uses: actions/setup-node@v3
-          with:
-            node-version: 18
+        with:
+          node-version: 18
 
-      - name: Install dependencies and build
-        run: |
-          npm install
-          npm run build
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
-        if: github.ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main' # Adjust to match your main branch
         uses: actions/deploy-pages@v2
-          with:
-            token: ${{ secrets.GITHUB_TOKEN }}
-            branch: gh-pages
-            folder: ./build
-            permissions:
-              id-token: write
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages # Specify the branch to deploy to
+          folder: ./build # Adjust to the path where your build artifacts are
+        permissions:
+          id-token: write
