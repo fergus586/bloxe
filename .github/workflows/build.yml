@@ -7,12 +7,12 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout code from another repository
         uses: actions/checkout@v2
         with:
-          repository: BloxeArt/bloxe
-          ref: main
-          ssh-key: ${{ secrets.BLOXEART_DEPLOY_KEY }}
+          repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
+          ref: main  # Replace with the branch or tag you want to checkout
+          ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -25,7 +25,14 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: ./build
+
       - name: Deploy to GitHub Pages
-        run: |
-          npm install -g gh-pages
-          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
+        uses: actions/deploy-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build
