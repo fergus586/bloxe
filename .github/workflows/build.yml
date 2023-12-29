@@ -30,4 +30,4 @@ jobs:
           git config --global user.email "fergus586@gmail.com"
           git config --global user.name "fergus586"
           git remote add origin_with_token https://${{ secrets.GITHUB_TOKEN }}@github.com/BloxeArt/bloxe.git
-          git subtree push --prefix build origin_with_token:gh-pages
+          git subtree push --prefix build origin gh-pages
