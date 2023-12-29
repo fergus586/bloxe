@@ -33,3 +33,5 @@ jobs:
             token: ${{ secrets.GITHUB_TOKEN }}
             branch: gh-pages
             folder: ./build
+            permissions:
+              id-token: write
