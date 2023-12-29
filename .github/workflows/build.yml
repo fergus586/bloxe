@@ -34,11 +34,22 @@ jobs:
       - name: Load SSH key and deploy to GitHub Pages
         run: |
           npm install -g gh-pages
+
+          # Enable verbose mode for ssh-add
+          echo "Adding SSH key to the agent with verbose output..."
           eval "$(ssh-agent -s)"
-          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+          ssh-add -v <(echo "$SSH_PRIVATE_KEY" | tr -d '\r')
+
+          # Display the loaded keys
+          echo "List of loaded keys:"
+          ssh-add -L
+
+          # Configure Git user
           git config --global user.email "fergus586@gmail.com"
           git config --global user.name "fergus586"
-          git config --global -l  # Add this line to display global git configurations for debugging
+
+          # Deploy to GitHub Pages
+          echo "Deploying to GitHub Pages..."
           gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b gh-pages
         env:
           SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
