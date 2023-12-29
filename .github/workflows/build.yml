@@ -12,7 +12,7 @@ jobs:
         with:
           repository: BloxeArt/bloxe  # Replace with the username and repository name you want to checkout
           ref: main  # Replace with the branch or tag you want to checkout
-          ssh-key: ${{ secrets.PAGES_DEPLOY_KEY }}
+          ssh-key: ${{ secrets.DEPLOY_SSH_KEY }}
 
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -28,5 +28,6 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
-          gh-pages -d ./build -r git@github.com:BloxeArt/bloxe.git -b main
-
+          gh-pages -d ./build -r git@github.com:fergus586/bloxe.git -b main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.DEPLOY_SSH_KEY }}
