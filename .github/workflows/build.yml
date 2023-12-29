@@ -28,5 +28,5 @@ jobs:
       - name: Deploy to GitHub Pages
         run: |
           npm install -g gh-pages
-          gh-pages -d ./build -r git@github.com:BloxeArt/bloxe.git -b main
+          gh-pages -d ./build -r git@github.com:BloxeArt/bloxe.git -b gh-pages
 
