@@ -30,7 +30,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: github.ref == 'refs/heads/main' # Adjust to match your main branch
-        uses: actions/deploy-pages@v3
+        uses: actions/deploy-pages@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages # Specify the branch to deploy to
