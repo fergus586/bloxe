@@ -28,6 +28,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install react-ga
+        run: npm install react-ga
+
       - name: Install dependencies
         run: npm ci
 
