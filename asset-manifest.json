@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://bloxe.art/static/css/main.a22a2930.css",
-    "main.js": "https://bloxe.art/static/js/main.9e1ccd9e.js",
+    "main.css": "https://bloxe.art/static/css/main.702572c7.css",
+    "main.js": "https://bloxe.art/static/js/main.4c2c4e9f.js",
     "static/js/453.edc2f099.chunk.js": "https://bloxe.art/static/js/453.edc2f099.chunk.js",
     "static/media/image4.png": "https://bloxe.art/static/media/image4.deedd3a5df090bc71e2b.png",
     "static/media/image1.png": "https://bloxe.art/static/media/image1.adfd46a031f8cfe3d35e.png",
@@ -9,12 +9,12 @@
     "static/media/image3.png": "https://bloxe.art/static/media/image3.6512a392caacdd3cfbea.png",
     "static/media/bloxewhite.png": "https://bloxe.art/static/media/bloxewhite.88c3bd9670a47f9f7d2e.png",
     "index.html": "https://bloxe.art/index.html",
-    "main.a22a2930.css.map": "https://bloxe.art/static/css/main.a22a2930.css.map",
-    "main.9e1ccd9e.js.map": "https://bloxe.art/static/js/main.9e1ccd9e.js.map",
+    "main.702572c7.css.map": "https://bloxe.art/static/css/main.702572c7.css.map",
+    "main.4c2c4e9f.js.map": "https://bloxe.art/static/js/main.4c2c4e9f.js.map",
     "453.edc2f099.chunk.js.map": "https://bloxe.art/static/js/453.edc2f099.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a22a2930.css",
-    "static/js/main.9e1ccd9e.js"
+    "static/css/main.702572c7.css",
+    "static/js/main.4c2c4e9f.js"
   ]
 }
